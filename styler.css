@@ -282,8 +282,16 @@ section {
     overflow: hidden;
 }
 
+.about-image div {
+    max-width: 100%;
+    line-height: 1.6;
+    z-index: 2;
+    position: relative;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 .about-image::before {
-    
     position: absolute;
     font-size: 8rem;
     opacity: 0.1;
@@ -297,11 +305,97 @@ section {
 }
 
 /* Portafolio */
+/* ========================================
+   VELOCIDAD DEL CARRUSEL PARA TODOS LOS DISPOSITIVOS
+   ======================================== */
+
+/* Computador de escritorio grande (más de 1440px) */
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 50s linear infinite;
+}
+
+/* Computador normal / Laptop (1200px - 1440px) */
+@media (max-width: 1440px) {
+  .carousel-track {
+    animation-duration: 60s;
+  }
+}
+
+/* Laptop pequeño / Tablet horizontal (1024px - 1200px) */
+@media (max-width: 1200px) {
+  .carousel-track {
+    animation-duration: 70s;
+  }
+}
+
+/* Tablet grande horizontal (768px - 1024px) */
+@media (max-width: 1024px) {
+  .carousel-track {
+    animation-duration: 80s;
+  }
+}
+
+/* Tablet vertical / Celular grande horizontal (600px - 768px) */
+@media (max-width: 768px) {
+  .carousel-track {
+    animation-duration: 100s;
+  }
+}
+
+/* Celular grande (480px - 600px) 
+   iPhone 14 Pro Max, Samsung Galaxy S23, etc. */
+@media (max-width: 600px) {
+  .carousel-track {
+    animation-duration: 110s;
+  }
+}
+
+/* Celular mediano (414px - 480px)
+   iPhone 14, iPhone 13, Samsung Galaxy S21, etc. */
+@media (max-width: 480px) {
+  .carousel-track {
+    animation-duration: 120s;
+  }
+}
+
+/* Celular estándar (375px - 414px)
+   iPhone 12, iPhone 11, etc. */
+@media (max-width: 414px) {
+  .carousel-track {
+    animation-duration: 130s;
+  }
+}
+
+/* Celular pequeño (360px - 375px)
+   Samsung Galaxy, Xiaomi, etc. */
+@media (max-width: 375px) {
+  .carousel-track {
+    animation-duration: 140s;
+  }
+}
+
+/* Celular muy pequeño (320px - 360px)
+   iPhone SE, modelos antiguos */
+@media (max-width: 360px) {
+  .carousel-track {
+    animation-duration: 150s;
+  }
+}
+
+/* Celular ultra pequeño (menos de 320px)
+   Modelos muy antiguos o pantallas pequeñas */
+@media (max-width: 320px) {
+  .carousel-track {
+    animation-duration: 160s;
+  }
+}
 
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmin(300px, 1fr));
     gap: 2rem;
 }
 
@@ -627,6 +721,12 @@ footer {
     .hero p {
         font-size: 1.4rem;
     }
+    
+    .about-image {
+        height: 380px;
+        font-size: 1.4rem;
+        padding: 2rem 1.5rem;
+    }
 }
 
 /* ============================================
@@ -649,6 +749,12 @@ footer {
     
     .about-content {
         gap: 3rem;
+    }
+    
+    .about-image {
+        height: 360px;
+        font-size: 1.3rem;
+        padding: 2rem 1.4rem;
     }
     
     .contact-container {
@@ -744,7 +850,15 @@ footer {
     }
     
     .about-image {
-        height: 300px;
+        height: auto;
+        min-height: 300px;
+        font-size: 1.2rem;
+        padding: 2rem 1.5rem;
+        margin-top: 2rem;
+    }
+    
+    .about-image div {
+        line-height: 1.7;
     }
     
     /* Portafolio */
@@ -830,6 +944,17 @@ footer {
         font-size: 1.4rem;
     }
     
+    .about-image {
+        height: auto;
+        min-height: 260px;
+        font-size: 1rem;
+        padding: 1.5rem 1rem;
+    }
+    
+    .about-image div {
+        line-height: 1.8;
+    }
+    
     .service-card {
         padding: 2rem 1.5rem;
     }
@@ -856,6 +981,49 @@ footer {
 }
 
 /* ============================================
+   RESPONSIVE - CELULAR ESTÁNDAR (hasta 414px)
+   ============================================ */
+@media (max-width: 414px) {
+    .about-image {
+        height: auto;
+        min-height: 240px;
+        font-size: 0.95rem;
+        padding: 1.3rem 0.9rem;
+        border-radius: 15px;
+    }
+    
+    .about-image div {
+        line-height: 1.7;
+    }
+    
+    .about-image small {
+        font-size: 0.8rem;
+        display: block;
+        margin-top: 0.5rem;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - CELULAR PEQUEÑO (hasta 375px)
+   ============================================ */
+@media (max-width: 375px) {
+    .about-image {
+        height: auto;
+        min-height: 220px;
+        font-size: 0.9rem;
+        padding: 1.2rem 0.8rem;
+    }
+    
+    .about-image div {
+        line-height: 1.6;
+    }
+    
+    .about-image small {
+        font-size: 0.75rem;
+    }
+}
+
+/* ============================================
    RESPONSIVE - MÓVIL MUY PEQUEÑO (hasta 360px)
    ============================================ */
 @media (max-width: 360px) {
@@ -874,5 +1042,41 @@ footer {
     
     .section-title {
         font-size: 1.6rem;
+    }
+    
+    .about-image {
+        height: auto;
+        min-height: 200px;
+        font-size: 0.85rem;
+        padding: 1rem 0.7rem;
+    }
+    
+    .about-image div {
+        line-height: 1.5;
+    }
+    
+    .about-image small {
+        font-size: 0.7rem;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - CELULAR ULTRA PEQUEÑO (hasta 320px)
+   ============================================ */
+@media (max-width: 320px) {
+    .about-image {
+        height: auto;
+        min-height: 180px;
+        font-size: 0.8rem;
+        padding: 0.9rem 0.6rem;
+        border-radius: 12px;
+    }
+    
+    .about-image div {
+        line-height: 1.4;
+    }
+    
+    .about-image small {
+        font-size: 0.65rem;
     }
 }
