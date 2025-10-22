@@ -237,6 +237,11 @@ section {
 }
 
 /* Sobre Mí */
+.about-text p {
+    text-align: justify;
+    text-align-last: left; /* hace que la última línea quede alineada a la izquierda */
+}
+
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -304,6 +309,8 @@ section {
     transform: scale(1.05);
 }
 
+
+/* Portafolio */
 /* Portafolio */
 /* ========================================
    VELOCIDAD DEL CARRUSEL PARA TODOS LOS DISPOSITIVOS
@@ -311,15 +318,16 @@ section {
 
 /* Computador de escritorio grande (más de 1440px) */
 .carousel-track {
-  display: flex;
-  width: max-content;
+  /* CAMBIO CLAVE 2: Asegurar que el estado de animación sea 'paused' */
   animation: scroll 50s linear infinite;
+  animation-play-state: paused; 
 }
 
 /* Computador normal / Laptop (1200px - 1440px) */
 @media (max-width: 1440px) {
   .carousel-track {
     animation-duration: 60s;
+    animation-play-state: paused; /* ¡Asegúrate de agregar esto! */
   }
 }
 
@@ -327,68 +335,67 @@ section {
 @media (max-width: 1200px) {
   .carousel-track {
     animation-duration: 70s;
+    animation-play-state: paused; /* ¡Asegúrate de agregar esto! */
   }
 }
+
+/* ... continua con tus media queries, agregando `animation-play-state: paused;` 
+a cada una para que el JS las controle: */
 
 /* Tablet grande horizontal (768px - 1024px) */
 @media (max-width: 1024px) {
   .carousel-track {
     animation-duration: 80s;
+    animation-play-state: paused;
   }
 }
-
 /* Tablet vertical / Celular grande horizontal (600px - 768px) */
 @media (max-width: 768px) {
   .carousel-track {
     animation-duration: 100s;
+    animation-play-state: paused;
   }
 }
-
-/* Celular grande (480px - 600px) 
-   iPhone 14 Pro Max, Samsung Galaxy S23, etc. */
+/* Celular grande (480px - 600px) */
 @media (max-width: 600px) {
   .carousel-track {
     animation-duration: 110s;
+    animation-play-state: paused;
   }
 }
-
-/* Celular mediano (414px - 480px)
-   iPhone 14, iPhone 13, Samsung Galaxy S21, etc. */
+/* Celular mediano (414px - 480px) */
 @media (max-width: 480px) {
   .carousel-track {
     animation-duration: 120s;
+    animation-play-state: paused;
   }
 }
-
-/* Celular estándar (375px - 414px)
-   iPhone 12, iPhone 11, etc. */
+/* Celular estándar (375px - 414px) */
 @media (max-width: 414px) {
   .carousel-track {
     animation-duration: 130s;
+    animation-play-state: paused;
   }
 }
-
-/* Celular pequeño (360px - 375px)
-   Samsung Galaxy, Xiaomi, etc. */
+/* Celular pequeño (360px - 375px) */
 @media (max-width: 375px) {
   .carousel-track {
     animation-duration: 140s;
+    animation-play-state: paused;
   }
 }
-
-/* Celular muy pequeño (320px - 360px)
-   iPhone SE, modelos antiguos */
+/* Celular muy pequeño (320px - 360px) */
 @media (max-width: 360px) {
   .carousel-track {
     animation-duration: 150s;
+    animation-play-state: paused;
   }
 }
-
-/* Celular ultra pequeño (menos de 320px)
-   Modelos muy antiguos o pantallas pequeñas */
+/* Celular ultra pequeño (menos de 320px) */
 @media (max-width: 320px) {
   .carousel-track {
     animation-duration: 160s;
+    animation-play-state: paused;
   }
 }
 

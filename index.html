@@ -60,12 +60,13 @@
         <div class="about-content">
             <div class="about-text">
                 <h3>Mi Historia</h3>
-                <p>Soy Luna Moreno, chef y creadora de Le Nuit Catering, un catering diseñado para transformar cada evento en una experiencia única y llena de emoción.
-                    Estudié gastronomía con la convicción de que la comida puede ir más allá del sabor: puede transmitir arte, amor y conexión. Por eso, en Le Nuit Catering combinamos técnicas de alta cocina con una presentación artística y sensorial.
-                    Realizamos servicios de catering para bodas, cumpleaños, eventos empresariales y celebraciones privadas, cuidando cada detalle desde la ambientación hasta la última presentación de los platos.
-                    Nuestra propuesta se basa en crear experiencias personalizadas, donde cada cliente sienta que su evento refleja su historia y estilo.
-                    Creemos que la gastronomía también puede ser un lenguaje del alma —por eso, cada plato, cada aroma y cada textura cuenta algo.
-                    En Le Nuit Catering, cocinamos con arte, con propósito y con amor. 
+                <p>Soy Luna Moreno, chef y creadora de Le Nuit Catering, un catering diseñado para transformar cada evento en una experiencia única y 
+                  llena de emociónes. Estudié gastronomía con la convicción de que la comida puede ir más allá del sabor: puede transmitir amor, arte y conexión. 
+                  Por eso, en Le Nuit Catering combinamos técnicas de alta cocina con una presentación artística y sensorial. Realizamos servicios de catering para bodas, 
+                  cumpleaños, eventos empresariales y celebraciones privadas, cuidando cada detalle desde la ambientación hasta la última presentación de los platos. 
+                  Nuestra propuesta se basa en crear experiencias personalizadas, donde cada cliente sienta que su evento refleja su historia y estilo. 
+                  Creemos que la gastronomía también puede ser un lenguaje del alma
+                   —por eso, cada plato, cada aroma y cada textura cuenta algo. En Le Nuit Catering, cocinamos con amor, propósito y arte.. 
 </p>
             </div>
             <div class="about-image">
@@ -83,9 +84,7 @@
 
   <div class="carousel">
     <div class="carousel-track">
-      <!-- Bloque original -->
-    <!-- Bloque completo de 22 imágenes -->
-<div class="portfolio-item">
+      <div class="portfolio-item">
   <div class="portfolio-image"><img src="img/Img/img1.jpg" alt="Imagen 1"></div>
   <div class="portfolio-overlay"><h3>Postre</h3><p>Mousse de maracuya</p></div>
 </div>
@@ -182,12 +181,11 @@
   <div class="portfolio-overlay"><h3>Fuerte</h3><p>Dúo de lomo de res, cowboy butter y funghi porcini, milhoja de papa trufada y bouquet de vegetales asados(zuccini verde y amarillo, pimentón, zanahoria baby, mazorquitas encurtida y espárrago)</p></div>
 </div>
 <div class="portfolio-item">
-  <div class="portfolio-image"><img src="img/Img/img25.jpg" alt="Imagen 24"></div>
-  <div class="portfolio-overlay"><h3>Entrada<p>Crema</p></div>
+  <div class="portfolio-image"><img src="img/Img/img25.jpg" alt="Imagen 25"></div>
+  <div class="portfolio-overlay"><h3>Entrada</h3><p>Crema</p></div>
 </div>
 
-      <!-- Duplicado para loop infinito -->
-<div class="portfolio-item">
+      <div class="portfolio-item">
   <div class="portfolio-image"><img src="img/Img/img1.jpg" alt="Imagen 1"></div>
   <div class="portfolio-overlay"><h3>Postre</h3><p>Mousse de maracuya</p></div>
 </div>
@@ -284,10 +282,10 @@
   <div class="portfolio-overlay"><h3>Fuerte</h3><p>Dúo de lomo de res, cowboy butter y funghi porcini, milhoja de papa trufada y bouquet de vegetales asados(zuccini verde y amarillo, pimentón, zanahoria baby, mazorquitas encurtida y espárrago)</p></div>
 </div>
 <div class="portfolio-item">
-  <div class="portfolio-image"><img src="img/Img/img25.jpg" alt="Imagen 24"></div>
-  <div class="portfolio-overlay"><h3>Entrada<p>Crema</p></div>
+  <div class="portfolio-image"><img src="img/Img/img25.jpg" alt="Imagen 25"></div>
+  <div class="portfolio-overlay"><h3>Entrada</h3><p>Crema</p></div>
 </div>
-  </div>
+    </div>
 </section>
 
 <style>
@@ -302,7 +300,10 @@
 .carousel-track {
   display: flex;
   width: max-content;
+  /* CAMBIO CLAVE 1: Agregamos animation-play-state: paused; */
+  /* El JS lo cambiará a 'running' cuando el usuario lo vea */
   animation: scroll 120s linear infinite;
+  animation-play-state: paused; 
 }
 
 .portfolio-item {
@@ -350,6 +351,7 @@
   transform: translateY(0);
 }
 
+/* El keyframe es correcto para el loop infinito (0% a -50%) */
 @keyframes scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -371,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 carouselTrack.style.animationPlayState = 'paused';
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1 }); // Se activa cuando el 10% del carrusel es visible
 
     observer.observe(carousel);
 });
